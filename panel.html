@@ -1,0 +1,48 @@
+<html>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<head>
+<script type="text/javascript" src="news.js"></script>
+<script>
+
+$(document).ready(function() {
+
+	$("#sending-form").submit(function(e) {
+
+		e.preventDefault();
+
+		var form = $(this);
+		var url = form.attr('action');
+
+		$.ajax({
+			   type: "POST",
+			   url: url,
+			   data: {
+					form: form.serialize()
+				},
+			   success: function(data)
+			   {
+				   
+			   }
+			 });
+
+
+	});
+
+})
+
+</script>
+</head>
+<body>
+
+	<form id = "sending-form" action = "sending.php">
+	
+		<div>NAME<br><input name = "name" type = "text" /></div>
+		<div>DATE<br><input name = "date" type = "date" /></div>
+		<div>REF<br><input name = "reference" type = "text" /></div>
+		<button>Wyślij</button>
+	
+	</form>
+
+</body>
+
+</html>
